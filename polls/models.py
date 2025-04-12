@@ -8,6 +8,7 @@ class ProductCategory(models.Model):
 
 class polls(models.Model):
     category_name = models.ForeignKey('ProductCategory', related_name='productCategory', on_delete=models.CASCADE,null=True)
+    pr_name = models.CharField(max_length=50)
     pr_id = models.PositiveIntegerField()
     name = models.CharField(max_length=50)
     cost = models.DecimalField(decimal_places=2, max_digits=6)

@@ -14,6 +14,7 @@ from .test import Message
 from rest_framework.views import APIView
 from rest_framework import mixins
 from rest_framework import generics
+from rest_framework import viewsets
 # Create your views here.
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
@@ -92,3 +93,21 @@ class DetailedProductMixins(mixins.RetrieveModelMixin,
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
 
+class ListProductGenerics(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = productSerializer
+
+class DetailedProductGenerics(generics.RetrieveAPIView,
+                              generics.UpdateAPIView,
+                              generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = productSerializer
+
+class SpecialProductGenerics(generics.ListCreateAPIView,
+                              generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = productSerializer
+
+class productviewset(viewsets.modelviewset):
+    queryset = Product.objects.all()
+    serializer_class = productSerializer

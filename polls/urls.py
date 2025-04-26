@@ -2,7 +2,7 @@ from django.urls import path, include
 from . import views
 from polls.views import listpolls
 from .views import productDetailsView, listproducts, productviewset
-from rest_framework.routers import defaultRouter
+from rest_framework.routers import defaultRouter, simplerouter
 
 router = defaultRouter()
 router.register(

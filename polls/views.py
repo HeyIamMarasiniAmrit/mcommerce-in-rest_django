@@ -16,6 +16,7 @@ from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import viewsets
 # Create your views here.
+
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
 
@@ -66,6 +67,7 @@ class productDetailsView(APIView):
     def delete(self, request, pid):
         product_obj = product.objects.filter(product_id=pid).delete()
         return Response(serializer_obj.errors, status=status.HTTP_200_ok)
+        
 
 class listproductsMixins(mixins.listModelMixin,generics.GenericAPIView):
      queryset = Product.objects.all()

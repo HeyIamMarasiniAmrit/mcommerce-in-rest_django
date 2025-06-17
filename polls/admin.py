@@ -6,3 +6,4 @@ from .models import polls,ProductCategory
 admin.site.register(polls)
 admin.site.register(ProductCategory)
 admin.site.register(ProductList)
+admin.site.register(Productnum)

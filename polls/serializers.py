@@ -12,5 +12,5 @@ class pollsSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.passwordField()
-    content = serializers.CharField(max_length=200)
+    content = serializers.CharField(max_length=260)
     created = serializers.DateTimeField()

@@ -8,7 +8,8 @@ class pollsSerializer(serializers.ModelSerializer):
        # fields = '__all__'
        fields= ['pr_id', 'name']
 
-#simple serializer
+#simple serializer 
+
 class MessageSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.passwordField()

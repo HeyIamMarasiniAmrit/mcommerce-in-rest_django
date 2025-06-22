@@ -3,6 +3,7 @@ from django.db.models import query
 from .models import polls
 from .serializers import pollsSerializer
 
+
 from polls.views import ListPolls
 
 from .serializers import pollsSerializer,MessageSerializer
@@ -15,6 +16,7 @@ from rest_framework.views import APIView
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import viewsets
+
 # Create your views here.
 
 @api_view(['GET','POST'])
@@ -28,6 +30,8 @@ def listPolls(request):
         'serializer_class_data':serializer_class.data
     }
     return Response(serializer_class.data)
+
+# creating get , post method
 
 @api_view(['GET','POST'])
 def listmessages(request):
